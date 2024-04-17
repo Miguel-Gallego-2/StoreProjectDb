@@ -4,22 +4,23 @@
  */
 package com.mycompany.storeprojectdb;
 
-public class Product {
+public final class Product {
+
     private String name;
     private double price;
     private int stock;
     private int id;
-    
+
     public Product() {
-         int id = (int)(Math.random()*100000);
-         setId(id);
+        int id = (int) (Math.random() * 100000);
+        setId(id);
     }
 
     public Product(String name, double price, int stock) {
         this.name = name;
         this.price = price;
         this.stock = stock;
-        int id = (int)(Math.random()*100000);
+        int id = (int) (Math.random() * 100000);
         setId(id);
     }
 
@@ -30,7 +31,7 @@ public class Product {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -53,5 +54,5 @@ public class Product {
 
     public void setStock(int stock) {
         this.stock = stock;
-    } 
+    }
 }

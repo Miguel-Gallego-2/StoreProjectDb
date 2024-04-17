@@ -28,7 +28,7 @@ public class Connection {
                     //.setDatabaseAuthVariableOverride(null)
                     .build();
             FirebaseApp.initializeApp(options);
-            db=FirestoreClient.getFirestore();
+            db = FirestoreClient.getFirestore();
             System.out.println("Succesful conecction");
         } catch (IOException e) {
             System.err.println("Error : " + e.getMessage());

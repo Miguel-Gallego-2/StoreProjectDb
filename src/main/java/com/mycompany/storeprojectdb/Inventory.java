@@ -49,8 +49,8 @@ public class Inventory {
 
     public boolean validName(String newProductName) {
         boolean isValid;
-        isValid = lstProducts.stream().anyMatch(p->p.getName().equals(newProductName));
-        return isValid;  
+        isValid = lstProducts.stream().anyMatch(p -> p.getName().equals(newProductName));
+        return isValid;
     }
 
     public Product getProduct(String name, double price, int stock) {

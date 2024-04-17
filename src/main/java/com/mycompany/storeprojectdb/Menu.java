@@ -30,6 +30,7 @@ public class Menu extends javax.swing.JFrame {
         ProductProvider.readProducts(lstProducts);
         initObjects();
     }
+
     public int askForInt(String message, String value) {
         int result;
         do {
@@ -66,17 +67,17 @@ public class Menu extends javax.swing.JFrame {
 
     public String askForName(String message, String value) {
         String result;
-        Boolean validName=true;
+        Boolean validName = true;
         do {
             result = askForInput(message, value);
             if (result.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Invalid input. Please, insert a correct value.");
-            } else{
+            } else {
                 validName = inventory.validName(result);
-                if(value.equals(result)){
+                if (value.equals(result)) {
                     return result;
                 }
-                if(validName){
+                if (validName) {
                     JOptionPane.showMessageDialog(null, "It already exist a product with that name. Please, insert another name.");
                 }
             }
@@ -161,11 +162,12 @@ public class Menu extends javax.swing.JFrame {
             tableModel = new DefaultTableModel(data, COLUMNS) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
-                    return true;
+                    return false;
                 }
             };
             tblInventory.setModel(tableModel);
             tblInventory.setAutoCreateRowSorter(true);
+
         }
     }
 
@@ -178,44 +180,24 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtSearch = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
-        btnAddProduct = new javax.swing.JButton();
-        removeProduct = new javax.swing.JButton();
-        btnEditProduct = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInventory = new javax.swing.JTable();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnEditProduct = new javax.swing.JButton();
+        removeProduct = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
+        lblInventoryManagment = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(229, 229, 255));
 
-        btnSearch.setText("Search Product");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(229, 229, 255));
 
-        btnAddProduct.setText("Add Product");
-        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProductActionPerformed(evt);
-            }
-        });
-
-        removeProduct.setText("Remove Product");
-        removeProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeProductActionPerformed(evt);
-            }
-        });
-
-        btnEditProduct.setText("Edit Product");
-        btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditProductActionPerformed(evt);
-            }
-        });
-
+        tblInventory.setBackground(new java.awt.Color(240, 240, 240));
+        tblInventory.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -224,44 +206,119 @@ public class Menu extends javax.swing.JFrame {
                 "Name", "Price", "Stock"
             }
         ));
+        tblInventory.setSelectionBackground(new java.awt.Color(204, 204, 255));
         jScrollPane1.setViewportView(tblInventory);
+
+        txtSearch.setBackground(new java.awt.Color(240, 240, 240));
+        txtSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        btnSearch.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnSearch.setText("Search Product");
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+
+        btnEditProduct.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnEditProduct.setText("Edit Product");
+        btnEditProduct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEditProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProductActionPerformed(evt);
+            }
+        });
+
+        removeProduct.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        removeProduct.setText("Remove Product");
+        removeProduct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        removeProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeProductActionPerformed(evt);
+            }
+        });
+
+        btnAddProduct.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnAddProduct.setText("Add Product");
+        btnAddProduct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnAddProduct)
+                .addGap(63, 63, 63)
+                .addComponent(removeProduct)
+                .addGap(62, 62, 62)
+                .addComponent(btnEditProduct)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        lblInventoryManagment.setFont(new java.awt.Font("Lucida Handwriting", 1, 24)); // NOI18N
+        lblInventoryManagment.setText("Inventory Managment");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInventoryManagment)
+                .addGap(153, 153, 153))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(lblInventoryManagment)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(removeProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnAddProduct)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnEditProduct)
-                        .addGap(56, 56, 56)
-                        .addComponent(removeProduct))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -276,7 +333,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        Product product=getNewProductInfo();
+        Product product = getNewProductInfo();
         inventory.addProduct(product);
         saveDataDb(product);
         initObjects();
@@ -335,53 +392,57 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnEditProduct;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInventoryManagment;
     private javax.swing.JButton removeProduct;
     private javax.swing.JTable tblInventory;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
-    private void saveDataDb(Product product){
+    private void saveDataDb(Product product) {
         try {
-            Map<String,Object> data = new HashMap<>();
+            Map<String, Object> data = new HashMap<>();
             data.put("Name", product.getName());
             data.put("Price", product.getPrice());
             data.put("Stock", product.getStock());
             data.put("Id", product.getId());
-            ProductProvider.saveProduct("Product",String.valueOf(product.getId()),data);
-            JOptionPane.showMessageDialog(null,"Product saved Succesfully");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error saving product ");
-        }
-    }
-    private void updateDataDb(Product product){
-        try {
-            Map<String,Object> data = new HashMap<>();
-            data.put("Name", product.getName());
-            data.put("Price", product.getPrice());
-            data.put("Stock", product.getStock());
-            data.put("Id", product.getId());
-            ProductProvider.updateProduct("Product",String.valueOf(product.getId()),data);
-            JOptionPane.showMessageDialog(null,"Data updated succesfully");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error updating data");
-        }
-    }
-    private void deleteDataDb(Product product){
-        try {
-            ProductProvider.deleteProduct("Product",String.valueOf(product.getId()));
-            JOptionPane.showMessageDialog(null,"Product deleted succesfully");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error deleting data");
-        }
-    }
-    
-}
+            ProductProvider.saveProduct("Product", String.valueOf(product.getId()), data);
+            JOptionPane.showMessageDialog(null, "Product saved Succesfully");
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error saving product ");
+        }
+    }
+
+    private void updateDataDb(Product product) {
+        try {
+            Map<String, Object> data = new HashMap<>();
+            data.put("Name", product.getName());
+            data.put("Price", product.getPrice());
+            data.put("Stock", product.getStock());
+            data.put("Id", product.getId());
+            ProductProvider.updateProduct("Product", String.valueOf(product.getId()), data);
+            JOptionPane.showMessageDialog(null, "Data updated succesfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating data");
+        }
+    }
+
+    private void deleteDataDb(Product product) {
+        try {
+            ProductProvider.deleteProduct("Product", String.valueOf(product.getId()));
+            JOptionPane.showMessageDialog(null, "Product deleted succesfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error deleting data");
+        }
+    }
+
+}

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.storeprojectdb;
 
 import com.google.api.core.ApiFuture;
@@ -14,11 +10,8 @@ import com.google.cloud.firestore.QuerySnapshot;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
-/**
- *
- * @author migue
- */
 public class ProductProvider {
 
     static Firestore db;
@@ -35,6 +28,7 @@ public class ProductProvider {
         }
         return false;
     }
+
     public static boolean updateProduct(String collection, String document, Map<String, Object> data) {
         db = FirestoreClient.getFirestore();
         try {
@@ -47,6 +41,7 @@ public class ProductProvider {
         }
         return false;
     }
+
     public static boolean deleteProduct(String collection, String document) {
         db = FirestoreClient.getFirestore();
         try {
@@ -59,21 +54,22 @@ public class ProductProvider {
         }
         return false;
     }
+
     public static boolean readProducts(ArrayList<Product> lstProducts) {
         try {
-            CollectionReference Products= Connection.db.collection("Product");
+            CollectionReference Products = Connection.db.collection("Product");
             ApiFuture<QuerySnapshot> querySnap = Products.get();
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
-                Product product=new Product();
+                Product product = new Product();
                 product.setName(document.getString("Name"));
                 product.setPrice(document.getDouble("Price"));
-                product.setStock((int)Math.round(document.getDouble("Stock")));
-                product.setId((int)Math.round(document.getDouble("Id")));
+                product.setStock((int) Math.round(document.getDouble("Stock")));
+                product.setId((int) Math.round(document.getDouble("Id")));
                 lstProducts.add(product);
             }
             System.out.println("Data imported succesfully");
             return true;
-        } catch (Exception e) {
+        } catch (InterruptedException | ExecutionException e) {
             System.out.println("Error : " + e.getMessage());
         }
         return false;
