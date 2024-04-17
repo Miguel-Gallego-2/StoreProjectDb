@@ -355,6 +355,7 @@ public class Menu extends javax.swing.JFrame {
             data.put("Id", product.getId());
             ProductProvider.saveProduct("Product",String.valueOf(product.getId()),data);
             JOptionPane.showMessageDialog(null,"Saved Succesfully");
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error Saving");
         }
