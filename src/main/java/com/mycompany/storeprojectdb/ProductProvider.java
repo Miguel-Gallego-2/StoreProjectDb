@@ -54,7 +54,7 @@ public class ProductProvider {
         try {
             DocumentReference docRef = db.collection(collection).document(document);
             ApiFuture<WriteResult> result = docRef.delete(Precondition.NONE);
-            System.out.println("Deleted Succesfully");
+            System.out.println("Data errased succesfully");
             return true;
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
@@ -73,7 +73,7 @@ public class ProductProvider {
                 product.setId((int)Math.round(document.getDouble("Id")));
                 lstProducts.add(product);
             }
-            System.out.println("Read Succesfully");
+            System.out.println("Data imported succesfully");
             return true;
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
