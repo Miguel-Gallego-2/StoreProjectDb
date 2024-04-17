@@ -24,43 +24,45 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-              <Component id="txtSearch" min="-2" pref="328" max="-2" attributes="0"/>
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Component id="btnSearch" min="-2" pref="96" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="307" max="-2" attributes="0"/>
-              <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnAddProduct" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnEditProduct" min="-2" pref="96" max="-2" attributes="0"/>
-                  <Component id="removeProduct" min="-2" pref="96" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtSearch" pref="328" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="removeProduct" max="32767" attributes="0"/>
+                  <Component id="btnEditProduct" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnAddProduct" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSearch" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtSearch" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="btnAddProduct" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="btnEditProduct" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="removeProduct" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
+                  </Group>
               </Group>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,7 +72,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSearch">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="Search Product"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>

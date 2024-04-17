@@ -188,7 +188,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnSearch.setText("Search");
+        btnSearch.setText("Search Product");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -231,36 +231,37 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddProduct)
-                    .addComponent(btnEditProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(removeProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(removeProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(58, 58, 58)
                         .addComponent(btnAddProduct)
-                        .addGap(18, 18, 18)
+                        .addGap(49, 49, 49)
                         .addComponent(btnEditProduct)
-                        .addGap(33, 33, 33)
-                        .addComponent(removeProduct))))
+                        .addGap(56, 56, 56)
+                        .addComponent(removeProduct))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43))
         );
 
         pack();
@@ -354,10 +355,10 @@ public class Menu extends javax.swing.JFrame {
             data.put("Stock", product.getStock());
             data.put("Id", product.getId());
             ProductProvider.saveProduct("Product",String.valueOf(product.getId()),data);
-            JOptionPane.showMessageDialog(null,"Saved Succesfully");
+            JOptionPane.showMessageDialog(null,"Product saved Succesfully");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error Saving");
+            JOptionPane.showMessageDialog(null,"Error saving product ");
         }
     }
     private void updateDataDb(Product product){
@@ -368,7 +369,7 @@ public class Menu extends javax.swing.JFrame {
             data.put("Stock", product.getStock());
             data.put("Id", product.getId());
             ProductProvider.updateProduct("Product",String.valueOf(product.getId()),data);
-            JOptionPane.showMessageDialog(null,"Updated Succesfully");
+            JOptionPane.showMessageDialog(null,"Data updated succesfully");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error updating data");
         }
@@ -376,7 +377,7 @@ public class Menu extends javax.swing.JFrame {
     private void deleteDataDb(Product product){
         try {
             ProductProvider.deleteProduct("Product",String.valueOf(product.getId()));
-            JOptionPane.showMessageDialog(null,"deleted Succesfully");
+            JOptionPane.showMessageDialog(null,"Product deleted succesfully");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error deleting data");
         }
