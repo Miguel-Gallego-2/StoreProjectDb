@@ -11,7 +11,6 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Precondition;
 import com.google.cloud.firestore.QuerySnapshot;
-import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.ArrayList;
 import java.util.Map;
@@ -22,14 +21,13 @@ import java.util.Map;
  */
 public class ProductProvider {
 
-    CollectionReference reference;
     static Firestore db;
 
     public static boolean saveProduct(String collection, String document, Map<String, Object> data) {
         db = FirestoreClient.getFirestore();
         try {
             DocumentReference docRef = db.collection(collection).document(document);
-            ApiFuture<WriteResult> result = docRef.set(data);
+            docRef.set(data);
             System.out.println("Save Succesfully");
             return true;
         } catch (Exception e) {
@@ -41,7 +39,7 @@ public class ProductProvider {
         db = FirestoreClient.getFirestore();
         try {
             DocumentReference docRef = db.collection(collection).document(document);
-            ApiFuture<WriteResult> result = docRef.update(data);
+            docRef.update(data);
             System.out.println("updated Succesfully");
             return true;
         } catch (Exception e) {
@@ -53,7 +51,7 @@ public class ProductProvider {
         db = FirestoreClient.getFirestore();
         try {
             DocumentReference docRef = db.collection(collection).document(document);
-            ApiFuture<WriteResult> result = docRef.delete(Precondition.NONE);
+            docRef.delete(Precondition.NONE);
             System.out.println("Data errased succesfully");
             return true;
         } catch (Exception e) {
