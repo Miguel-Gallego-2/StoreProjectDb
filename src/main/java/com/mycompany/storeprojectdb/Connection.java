@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.storeprojectdb;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -12,10 +8,6 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-/**
- *
- * @author migue
- */
 public class Connection {
 
     public static Firestore db;
@@ -25,7 +17,6 @@ public class Connection {
             FileInputStream serviceAccount = new FileInputStream("storeproyectdb-firebase-adminsdk.json");
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    //.setDatabaseAuthVariableOverride(null)
                     .build();
             FirebaseApp.initializeApp(options);
             db = FirestoreClient.getFirestore();
